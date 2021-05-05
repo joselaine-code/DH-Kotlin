@@ -1,8 +1,8 @@
 fun main() {
-//    qualOMaior(10,20,3)
-//    parOuImpar(50)
-//    imprimirImpares()
-//    println(analise(7,10,5,6))
+    qualOMaior(10,20,3)
+    parOuImpar(50)
+    imprimirImpares()
+    println(analise(7,10,5,6))
     println(exercicio3(4))
     exercicio4()
 

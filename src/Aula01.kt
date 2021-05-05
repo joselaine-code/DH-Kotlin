@@ -60,3 +60,11 @@ fun main() {
     }
 
 }
+
+fun meuNomeCompleto(nome:String, sobrenome:String){
+    println("Meu nome é $nome $sobrenome")
+}
+
+fun someDoisNumero(a : Double, b: Double) : Double{
+    return a + b
+}
