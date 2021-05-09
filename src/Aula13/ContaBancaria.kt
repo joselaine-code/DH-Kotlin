@@ -2,7 +2,7 @@ package Aula13
 
 abstract class ContaBancaria(
     val numeroDaConta: Int,
-    var saldo:Double
+    var saldo: Double
 ) {
 
 

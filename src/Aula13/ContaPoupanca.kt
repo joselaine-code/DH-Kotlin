@@ -15,7 +15,7 @@ class ContaPoupanca(numeroDaConta: Int, saldo: Double, var limite: Double) : Con
     }
 
     override fun mostrarDados() {
-        println("Conta: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite")
+        println("Conta: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite\n")
     }
 
     override fun toString(): String {

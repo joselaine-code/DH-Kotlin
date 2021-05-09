@@ -21,10 +21,10 @@ class ContaCorrente(numeroDaConta: Int, saldo: Double, var taxaDeOperacao: Doubl
     }
 
     override fun mostrarDados() {
-        println("Conta: $numeroDaConta\nSaldo: R$ $saldo")
+        println("Conta: $numeroDaConta\nSaldo: R$ $saldo\n")
     }
 
     override fun toString(): String {
-        return "Conta: $numeroDaConta\nSaldo: R$ $saldo"
+        return "Conta: $numeroDaConta\nSaldo: R$ $saldo\n"
     }
 }
