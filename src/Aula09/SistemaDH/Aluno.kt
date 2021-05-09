@@ -6,11 +6,11 @@ class Aluno(
     val sobrenome: String
 ) {
 
-    fun assistirAula(aula: Aula){
+    fun assistirAula(aula: Aula) {
         println("Estou assistindo a aula ($aula.nome)")
     }
 
-    fun fazerLicoesDeCasa(){
+    fun fazerLicoesDeCasa() {
         println("Fazendo lições da DigitalHouse")
     }
 

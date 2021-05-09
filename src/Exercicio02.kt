@@ -1,35 +1,42 @@
 fun main() {
-    val larissa = Contribuinte("F", 66, 30)
+    val larissa = Contribuinte('F', 59, 30)
 
-   val lista = ListaDeNumeros(listOf(5,5,5))
-    println(lista.produto())
+    larissa.aposentadoria()
+    val number1 = ListaDeNumeros(listOf(2,2,2))
+    number1.produto()
 
 }
 
 //1)
 class Contribuinte(
-    val sexo: String,
+    val sexo: Char,
     val idade: Int,
     val tempoDeContribuicao: Int
 ) {
 
-    fun aposentadoria(): Boolean {
-        return if (sexo == "F" && idade >= 60 && tempoDeContribuicao >= 30) {
-            true
-        } else sexo == "M" && idade >= 65 && tempoDeContribuicao >= 30
+    fun aposentadoria() {
+        if (tempoDeContribuicao < 30) {
+            println(false)
+        } else if (sexo == 'F' && idade >= 60) {
+            println(true)
+        } else if (sexo == 'M' && idade >= 65) {
+            println(true)
+        } else {
+            println(false)
+        }
     }
 }
 
 //2)
 class ListaDeNumeros(
     val lista: List<Int>
-){
+) {
 
-    fun produto(): Int{
+    fun produto() {
         var result: Int = 1
         for (num in lista) {
             result *= num
         }
-        return result
+       println(result)
     }
 }

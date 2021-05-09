@@ -1,6 +1,6 @@
 package Aula09.SistemaDH
 
-class  Materia(
+class Materia(
     val nome: String
 ) {
 

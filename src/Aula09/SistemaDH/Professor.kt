@@ -3,7 +3,7 @@ package Aula09.SistemaDH
 class Professor(
     nome: String,
     rd: Int
-) : Docente{
+) : Docente {
     override fun darAulas() {
 
     }
