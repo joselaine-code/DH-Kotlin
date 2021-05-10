@@ -1,7 +1,7 @@
 package Aula09.Fatura
 
 class Fatura(
-    val listaItens: List<Item>
+    private val listaItens: List<Item>
 ) {
 
     fun getTotalFatura() {

@@ -1,9 +1,9 @@
 package Aula09.Estoque
 
 class Estoque (
-    var nome:String,
-    var qtdAtual: Int,
-    var qtdMinima: Int,
+    private var nome:String,
+    private var qtdAtual: Int,
+    private var qtdMinima: Int,
         ) {
 
     fun mudarNome(nomeNovo:String){

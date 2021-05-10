@@ -1,9 +1,9 @@
 package Aula09.SistemaDH
 
 class Curso(
-    val nome: String,
-    val listaDeAulas: List<Aula>,
-    val listaDeAlunos: List<Aluno>
+    private val nome: String,
+    private val listaDeAulas: List<Aula>,
+    private val listaDeAlunos: List<Aluno>
 ) {
 
     fun exibirAlunos(){

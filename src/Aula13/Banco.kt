@@ -53,6 +53,8 @@ class Banco(
                     println("Conta $nConta criada com sucesso!")
                 }
             }
+
+            // VERIFICAR FUNÇÃO POR FUNÇÃO
             2 -> {
                 println("Qual o número da conta que deseja selecionar?")
                 val conta = readLine()?.toInt()
@@ -83,7 +85,7 @@ class Banco(
                             if (valor != null) {
                                 contaSelecionada.sacar(valor)
                             } else {
-                                println("Conta não localizada!")
+                                println("Valor incorreto!")
                             }
                         }
 
@@ -102,7 +104,7 @@ class Banco(
                                 }
                             }
                         }
-                        "d" -> mostrarDados()
+                        "d" -> println(contaSelecionada)
 
                         "e" -> exibirMenu()
                     }
@@ -116,13 +118,18 @@ class Banco(
                 if (contaSelecionada != null) {
                     removerConta(contaSelecionada)
                     println("Conta $conta removida com sucesso!")
+                    contas.forEach { println(it) }
+                } else {
+                    println("Conta não localizada!")
                 }
             }
+
             4 -> {
                 println("Relatório de contas do DH Bank")
                 println("------------------------------")
                 contas.forEach { println(it) }
             }
+
             5 -> {
                 println("Finalizando sistema...")
             }

@@ -1,7 +1,7 @@
 package Aula09.SistemaDH
 
 class Turma(
-    nome: String,
-    curso: Curso
+    private val nome: String,
+    private val curso: Curso
 ) {
 }

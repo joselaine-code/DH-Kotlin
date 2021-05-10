@@ -3,7 +3,7 @@ class Aula02 {
 
 }
 
-class Animal (
+class Animal01 (
     //construtor primário
     val nome: String,
     val peso: Int,

@@ -1,8 +1,8 @@
 package Aula09.Fatura
 
 class Item(
-    val numeroDoItem: Int,
-    val descricao: String,
+    private val numeroDoItem: Int,
+    private val descricao: String,
     var quantidade: Int,
     var preco: Double
 ) {

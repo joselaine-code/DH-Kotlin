@@ -1,9 +1,9 @@
 package Aula09.SistemaDH
 
 class Aluno(
-    ra: Int,
-    val nome: String,
-    val sobrenome: String
+    private val ra: Int,
+    private val nome: String,
+    private val sobrenome: String
 ) {
 
     fun assistirAula(aula: Aula) {

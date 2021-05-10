@@ -1,5 +1,5 @@
 fun main() {
-    val neguinha = Animal("Neguinha", 15)
+//    val neguinha = Animal("Neguinha", 15)
 
-   println(neguinha)
+//   println(neguinha)
 }

@@ -1,8 +1,8 @@
 package Aula09.SistemaDH
 
 class Professor(
-    nome: String,
-    rd: Int
+    private val nome: String,
+    private val rd: Int
 ) : Docente {
     override fun darAulas() {
 

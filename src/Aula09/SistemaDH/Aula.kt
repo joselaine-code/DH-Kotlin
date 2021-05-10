@@ -1,9 +1,9 @@
 package Aula09.SistemaDH
 
 class Aula(
-    val materia: Materia,
-    val horarioInicio: Int,
-    val horarioFim: Int,
+    private val materia: Materia,
+    private val horarioInicio: Int,
+    private val horarioFim: Int,
 ) {
 
     override fun toString(): String {
