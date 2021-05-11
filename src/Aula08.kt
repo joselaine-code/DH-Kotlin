@@ -1,28 +1,67 @@
 fun main() {
-    //Aula sobre herança no Kotlin
+    val bichano = Bichano()
+    bichano.come()
+    bichano.minhaRaca()
+    println(bichano.sexo)
 
-    val neguinha = Cachorro()
+    /*
+    Bichano -> Gato -> Animal
 
-    neguinha.come()
-    println(neguinha.sexo)
+    Gato -> Animal
+     */
+
+    val gato = Gato()
+    gato.minhaRaca()
+    println(gato.sexo)
+}
+
+class Bichano : Gato() {
+
+    override val sexo: String = "M"
+
+    init {
+        raca = "Gato"
+    }
+
+    override fun come() {
+        super.come()
+        println("Come do jeito bichano de ser")
+    }
+}
+
+class Cachorro : Animal(
+    sexo = "M"
+) {
 
 }
 
-class Cachorro : Animal("F") {
+open class Gato : Animal(
+    sexo = "F",
+    cor = "Preto"
+) {
 
-    override fun come() {
-        println("Comendo auau")
+}
 
-    }
-
+class Leao : Animal() {
 
 }
 
 open class Animal(
-    open var sexo: String
+    open val sexo: String = "O"
 ) {
 
+    private var cor = ""
+    protected var raca = "Nenhuma"
+
+    constructor(sexo: String, cor: String) : this(sexo) {
+        this.cor = cor
+    }
+
     open fun come() {
-        println("Come de jeito default")
+        println("Como do jeito default")
+    }
+
+    fun minhaRaca() {
+        println("Minha raça é $raca")
     }
 }
