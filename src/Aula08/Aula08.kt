@@ -1,4 +1,5 @@
 fun main() {
+    // Aula sobre HERANÇA aplicada ao Kotlin
     val bichano = Bichano()
     bichano.come()
     bichano.minhaRaca()
