@@ -2,9 +2,12 @@ package Aula09.SistemaDH
 
 class Aluno(
     private val ra: Int,
-    private val nome: String,
-    private val sobrenome: String
-) {
+    private var nome: String,
+    private var sobrenome: String,
+
+    ) {
+    val getNome: String = nome
+    val getSobrenome: String = sobrenome
 
     fun assistirAula(aula: Aula) {
         println("Estou assistindo a aula ($aula.nome)")

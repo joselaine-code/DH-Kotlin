@@ -26,10 +26,12 @@ class ContaCorrente(
 
 fun main() {
     val cliente1 = Cliente("Joselaine", "Aparecida", 43633333, 5555)
+    val cliente2 = Cliente("Pedro", "Alberto", 43633333, 5555)
     val c1 = ContaCorrente(300.0, cliente1, 300.0)
-    val c2 = ContaPoupanca(cliente1, 200.0, 1.0)
+    val c2 = ContaPoupanca(cliente2, 200.0, 1.0)
     c1.depositar(300.0)
     c1.sacar(1.0)
     c1.depositarCheque(Cheque(200.0, "Banco do Brasil", "20/06/2021"))
     c2.recolherJuros()
+    println(c2.cliente)
 }

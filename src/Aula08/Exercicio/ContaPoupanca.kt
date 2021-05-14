@@ -3,7 +3,7 @@ package Aula08.Exercicio
 class ContaPoupanca(
     cliente: Cliente,
     saldo: Double,
-    val juros: Double
+    private val juros: Double
 ) : Contas(cliente, saldo) {
 
     override fun sacar(valor: Double) {
@@ -14,7 +14,8 @@ class ContaPoupanca(
     }
 
     fun recolherJuros() {
-        var totalJuros = saldo * (juros / 100)
-        println("Juros recolhidos no valor de R$ $totalJuros")
+        val juros = saldo * (juros / 100)
+        saldo += juros
+        println("Meu novo saldo é R$ $saldo")
     }
 }

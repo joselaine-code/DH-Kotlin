@@ -1,6 +1,6 @@
 package Aula09.SistemaDH
 
 interface Docente {
-    fun darAulas()
+    fun darAulas(aula: Aula)
     fun fazerChamada()
 }
