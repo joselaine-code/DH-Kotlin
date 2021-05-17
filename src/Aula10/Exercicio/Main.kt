@@ -2,7 +2,6 @@ package Aula10.Exercicio
 
 fun main() {
     apresentaçãoCinema()
-
 }
 
 fun apresentaçãoCinema(){
@@ -29,7 +28,7 @@ fun apresentaçãoCinema(){
                 println("Qual a localização?")
                 val localizacao = readLine().toString()
                 val camaroteInferior = CamaroteInferior(localizacao)
-                println("O ingressso é Camarote Inferior)")
+                println("O ingressso é Camarote Inferior")
                 camaroteInferior.imprimirLocalizao()
             }
         }
