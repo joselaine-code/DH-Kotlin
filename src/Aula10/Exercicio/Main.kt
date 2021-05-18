@@ -4,19 +4,19 @@ fun main() {
     apresentaçãoCinema()
 }
 
-fun apresentaçãoCinema(){
+fun apresentaçãoCinema() {
     println("-----------------------------------------------")
     println("Cinema DH")
     println("-----------------------------------------------")
     println("Digite 1 para ingresso normal e 2 para ingresso VIP:")
     val opcao = readLine()?.toIntOrNull()
-    if (opcao == 1){
+    if (opcao == 1) {
         val n = Normal()
         n.imprimeValor()
-    } else if (opcao == 2){
+    } else if (opcao == 2) {
         println("Digite 1 para Camarote Superior e 2 para Camarote Inferior: ")
         val opcao = readLine()?.toIntOrNull()
-        when (opcao){
+        when (opcao) {
             1 -> {
                 println("Qual a localização?")
                 val localizacao = readLine().toString()

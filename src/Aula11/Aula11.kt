@@ -7,7 +7,7 @@ interface RegraDeOuro {
     // Na classe abstrata é possível iniciar uma varíavel e guardar uma variavel, na interface não é possível (contrato
     // limpo e seco).
 
-//    Uma interface pode herdar de outra interface
+    // Uma interface pode herdar de outra interface
 
     fun calcularImposto()
     fun colherEstadoSaoPaulo()
