@@ -7,7 +7,7 @@ class ContaCorrente(numeroDaConta: Int,  saldo: Double, var taxaDeOperacao: Doub
     }
 
     override fun sacar(valor: Double) {
-        if (valor >= (saldo + taxaDeOperacao)){
+        if (valor <= (saldo + taxaDeOperacao)){
             saldo -= (valor - taxaDeOperacao)
             println("Saque de R$ $valor realizado com sucesso.")
         } else {
@@ -21,10 +21,10 @@ class ContaCorrente(numeroDaConta: Int,  saldo: Double, var taxaDeOperacao: Doub
     }
 
     override fun mostrarDados() {
-        println("Conta: $numeroDaConta\nSaldo: R$ $saldo\n")
+        println("Conta: $numeroDaConta\nSaldo: R$ $saldo")
     }
 
     override fun toString(): String {
-        return "Conta: $numeroDaConta\nSaldo: R$ $saldo\n"
+        return "Conta: $numeroDaConta\nSaldo: R$ $saldo"
     }
 }

@@ -54,7 +54,6 @@ class Banco(
                 }
             }
 
-            // VERIFICAR FUNÇÃO POR FUNÇÃO
             2 -> {
                 println("Qual o número da conta que deseja selecionar?")
                 val conta = readLine()?.toInt()
@@ -73,14 +72,14 @@ class Banco(
                     val opcao = readLine()?.lowercase()
                     when (opcao) {
                         "a" -> {
-                            println("Qual valor deseja depositar?")
+                            print("Qual valor deseja depositar? ")
                             val valor = readLine()?.toDouble()
                             if (valor != null) {
                                 contaSelecionada.depositar(valor)
                             }
                         }
                         "b" -> {
-                            println("Qual valor deseja sacar?")
+                            print("Qual valor deseja sacar? ")
                             val valor = readLine()?.toDouble()
                             if (valor != null) {
                                 contaSelecionada.sacar(valor)
@@ -98,16 +97,19 @@ class Banco(
                                 val valor = readLine()?.toDouble()
                                 if (valor != null) {
                                     contaSelecionada.transfere(valor, contaDestino)
-                                    println("saldo inicial: ${contaSelecionada.saldo}")
                                     println("Transferência da conta ${contaSelecionada.numeroDaConta} para ${contaDestino.numeroDaConta} no valor de R$ $valor")
-                                    println("saldo final: ${contaSelecionada.saldo}")
                                 }
+                            } else {
+                                println("Conta inexistente!")
                             }
                         }
                         "d" -> println(contaSelecionada)
 
                         "e" -> exibirMenu()
                     }
+                } else {
+                    println("-------------------------------------------------------")
+                    println("Conta não localizada")
                 }
             }
 
@@ -125,9 +127,13 @@ class Banco(
             }
 
             4 -> {
+                println("-------------------------------------------------------")
                 println("Relatório de contas do DH Bank")
-                println("------------------------------")
-                contas.forEach { println(it) }
+                println("-------------------------------------------------------")
+                contas.forEach {
+                    println(it)
+                    println("*******")
+                }
             }
 
             5 -> {
@@ -135,6 +141,7 @@ class Banco(
             }
 
         }
+        exibirMenu()
     }
 }
 
