@@ -38,19 +38,23 @@ class Banco(
         when (readLine()?.toIntOrNull()) {
             1 -> {
                 println("Qual conta deseja criar? (CC/CP)")
-                val opcaoConta = readLine()
-                println("Qual o número da conta?")
-                val nConta = readLine()?.toInt()
-                println("Qual o saldo inicial?")
-                val saldo = readLine()?.toDouble()
-                if (opcaoConta == "CC") {
-                    inserirConta(ContaCorrente(nConta!!, saldo!!, 3.0))
-                    println("Conta $nConta criada com sucesso!")
-                } else if (opcaoConta == "CP") {
-                    println("Qual o limite da conta?")
-                    val limite = readLine()?.toDouble()
-                    inserirConta(ContaPoupanca(nConta!!, saldo!!, limite!!))
-                    println("Conta $nConta criada com sucesso!")
+                val opcaoConta = readLine()?.toString()?.lowercase()
+                if (opcaoConta == "cc" || opcaoConta == "cp") {
+                    println("Qual o número da conta?")
+                    val nConta = readLine()?.toInt()
+                    println("Qual o saldo inicial?")
+                    val saldo = readLine()?.toDouble()
+                    if (opcaoConta == "CC") {
+                        inserirConta(ContaCorrente(nConta!!, saldo!!, 3.0))
+                        println("Conta $nConta criada com sucesso!")
+                    } else if (opcaoConta == "CP") {
+                        println("Qual o limite da conta?")
+                        val limite = readLine()?.toDouble()
+                        inserirConta(ContaPoupanca(nConta!!, saldo!!, limite!!))
+                        println("Conta $nConta criada com sucesso!")
+                    } else {
+                        println("Opção inválida")
+                    }
                 }
             }
 
@@ -140,8 +144,13 @@ class Banco(
                 println("Finalizando sistema...")
             }
 
+            else -> {
+                println("-------------------------------------------------------")
+                println("Opção inválida")
+                exibirMenu()
+            }
+
         }
-        exibirMenu()
     }
 }
 
