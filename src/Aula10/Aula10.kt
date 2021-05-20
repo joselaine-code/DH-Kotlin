@@ -5,6 +5,7 @@ abstract class Automovel() {
 }
 
 class Ferrari : Automovel() {
+    var nome = ""
     override fun acelerar() {
         TODO("Not yet implemented")
     }
@@ -13,6 +14,17 @@ class Ferrari : Automovel() {
         TODO("Not yet implemented")
     }
 
+    override fun equals(other: Any?): Boolean {
+        val outraFerrari = other as? Ferrari
+        return when (other) {
+            is Ferrari -> {
+                this.nome == outraFerrari?.nome
+            }
+            else -> {
+                super.equals(other)
+            }
+        }
+    }
 }
 
 
