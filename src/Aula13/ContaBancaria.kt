@@ -5,9 +5,11 @@ abstract class ContaBancaria(
     var saldo: Double
 ) {
 
-
-    abstract fun depositar(valor:Double)
-    abstract fun sacar(valor:Double)
-    abstract fun transfere (valor:Double, conta:ContaBancaria)
+    abstract fun depositar(valor: Double)
+    abstract fun sacar(valor: Double)
+    fun transfere(valor: Double, conta: ContaBancaria) {
+        this.sacar(valor)
+        conta.depositar(valor)
+    }
 
 }

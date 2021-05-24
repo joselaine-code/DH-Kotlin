@@ -10,10 +10,17 @@ class Banco(
 
     fun inserirConta(conta: ContaBancaria) {
         contas.add(conta)
+        println("${conta.numeroDaConta} inserida com sucesso!")
     }
 
     fun removerConta(conta: ContaBancaria) {
-        contas.remove(conta)
+        if (contas.contains(conta)){
+            contas.remove(conta)
+            println("${conta.numeroDaConta} removida com sucesso!")
+        } else {
+            println("Conta não localizada")
+        }
+
     }
 
     fun localizarConta(conta: ContaBancaria): ContaBancaria? {
