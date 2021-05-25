@@ -138,12 +138,12 @@ class Banco : Imprimivel {
                 if (opcao == "CC" || opcao == "cc") {
                     val numero = contas.last().numeroDaConta + 1
                     val contaCorrente = ContaCorrente(numero, taxaDeOperacao = 2.00)
-                    contas.add(contaCorrente)
+                    inserirConta(contaCorrente)
                     println("Conta ${contaCorrente.numeroDaConta} inserida com sucesso!")
                 } else if (opcao == "CP" || opcao == "cp") {
                     val numero = contas.last().numeroDaConta + 1
                     val contaPoupanca = ContaPoupanca(numero, limite = 100.00)
-                    contas.add(contaPoupanca)
+                    inserirConta(contaPoupanca)
                     println("Conta ${contaPoupanca.numeroDaConta} inserida com sucesso!")
                 } else {
                     println("Opção inválida!")

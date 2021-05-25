@@ -1,6 +1,6 @@
 package Aula13
 
-class ContaPoupanca(numeroDaConta: Int, saldo: Double, var limite: Double) : ContaBancaria(numeroDaConta, saldo),
+class ContaPoupanca(numeroDaConta: Int, saldo: Double = 0.0, var limite: Double) : ContaBancaria(numeroDaConta, saldo),
     Imprimivel {
     override fun depositar(valor: Double) {
         saldo += valor

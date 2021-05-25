@@ -14,7 +14,7 @@ class Banco(
     }
 
     fun removerConta(conta: ContaBancaria) {
-        if (contas.contains(conta)){
+        if (contas.contains(conta)) {
             contas.remove(conta)
             println("${conta.numeroDaConta} removida com sucesso!")
         } else {
@@ -44,24 +44,29 @@ class Banco(
         print("Digite a sua opção: ")
         when (readLine()?.toIntOrNull()) {
             1 -> {
-                println("Qual conta deseja criar? (CC/CP)")
-                val opcaoConta = readLine()?.toString()?.lowercase()
-                if (opcaoConta == "cc" || opcaoConta == "cp") {
-                    println("Qual o número da conta?")
-                    val nConta = readLine()?.toInt()
-                    println("Qual o saldo inicial?")
-                    val saldo = readLine()?.toDouble()
-                    if (opcaoConta == "CC") {
-                        inserirConta(ContaCorrente(nConta!!, saldo!!, 3.0))
-                        println("Conta $nConta criada com sucesso!")
-                    } else if (opcaoConta == "CP") {
-                        println("Qual o limite da conta?")
-                        val limite = readLine()?.toDouble()
-                        inserirConta(ContaPoupanca(nConta!!, saldo!!, limite!!))
-                        println("Conta $nConta criada com sucesso!")
+                println("Qual o tipo de conta você deseja criar? (CC/CP)")
+                val opcao = readLine().toString()
+                if (opcao == "CC" || opcao == "cc") {
+                    var numeroConta: Int = if (contas.isEmpty()) {
+                        0
                     } else {
-                        println("Opção inválida")
+                        contas.last().numeroDaConta + 1
                     }
+                    val contaCorrente = ContaCorrente(numeroConta, taxaDeOperacao = 2.00)
+                    inserirConta(contaCorrente)
+                    println("Conta ${contaCorrente.numeroDaConta} inserida com sucesso!")
+                } else if (opcao == "CP" || opcao == "cp") {
+                    var numeroConta: Int = if (contas.isEmpty()) {
+                        0
+                    } else {
+                        contas.last().numeroDaConta + 1
+                    }
+                    val contaPoupanca = ContaPoupanca(numeroConta, limite = 100.00)
+                    inserirConta(contaPoupanca)
+                    println("Conta ${contaPoupanca.numeroDaConta} inserida com sucesso!")
+                } else {
+                    println("Opção inválida!")
+                    exibirMenu()
                 }
             }
 
@@ -156,18 +161,7 @@ class Banco(
                 println("Opção inválida")
                 exibirMenu()
             }
-
         }
+        exibirMenu()
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 package Aula13
 
-class ContaCorrente(numeroDaConta: Int,  saldo: Double, var taxaDeOperacao: Double) : ContaBancaria(numeroDaConta, saldo),  Imprimivel {
+class ContaCorrente(numeroDaConta: Int,  saldo: Double = 0.0, var taxaDeOperacao: Double) : ContaBancaria(numeroDaConta, saldo),  Imprimivel {
 
     override fun depositar(valor: Double) {
         saldo += (valor - taxaDeOperacao)
