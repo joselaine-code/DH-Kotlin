@@ -7,24 +7,20 @@ class ContaPoupanca(numeroDaConta: Int, saldo: Double = 0.0, var limite: Double)
     }
 
     override fun sacar(valor: Double) {
-        if (valor <= saldo) {
-            saldo -= valor
-            println("Saque realizado com sucesso!")
-        } else if (saldo < valor && valor >= (saldo + limite)) {
-            var utilizadoLimite = valor - saldo
-            saldo = 0.0
-            limite -= utilizadoLimite
-            println("Saque do limite especial da conta!")
-        } else {
+        val saldoTotal = saldo + limite
+        if (valor > saldoTotal) {
             println("Saldo insuficiente")
+        } else {
+            saldo -= valor
+            println("Saque executado com sucesso")
         }
     }
 
     override fun mostrarDados() {
-        println("Conta: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite\n")
+        println("Conta Poupança nº: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite\n")
     }
 
     override fun toString(): String {
-        return "Conta: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite"
+        return "Conta Poupança nº: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite"
     }
 }

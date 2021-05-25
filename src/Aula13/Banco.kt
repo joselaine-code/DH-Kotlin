@@ -1,5 +1,8 @@
 package Aula13
 
+import java.util.*
+import kotlin.collections.ArrayList
+
 class Banco(
     var contas: ArrayList<ContaBancaria>
 ) : Imprimivel {
@@ -10,7 +13,7 @@ class Banco(
 
     fun inserirConta(conta: ContaBancaria) {
         contas.add(conta)
-        println("${conta.numeroDaConta} inserida com sucesso!")
+        println("Conta ${conta.numeroDaConta} inserida com sucesso!")
     }
 
     fun removerConta(conta: ContaBancaria) {
@@ -45,17 +48,16 @@ class Banco(
         when (readLine()?.toIntOrNull()) {
             1 -> {
                 println("Qual o tipo de conta você deseja criar? (CC/CP)")
-                val opcao = readLine().toString()
-                if (opcao == "CC" || opcao == "cc") {
-                    var numeroConta: Int = if (contas.isEmpty()) {
+                val opcao = readLine().toString().lowercase(Locale.getDefault())
+                if (opcao == "cc") {
+                    val numeroConta: Int = if (contas.isEmpty()) {
                         0
                     } else {
                         contas.last().numeroDaConta + 1
                     }
                     val contaCorrente = ContaCorrente(numeroConta, taxaDeOperacao = 2.00)
                     inserirConta(contaCorrente)
-                    println("Conta ${contaCorrente.numeroDaConta} inserida com sucesso!")
-                } else if (opcao == "CP" || opcao == "cp") {
+                } else if (opcao == "cp") {
                     var numeroConta: Int = if (contas.isEmpty()) {
                         0
                     } else {
@@ -63,7 +65,6 @@ class Banco(
                     }
                     val contaPoupanca = ContaPoupanca(numeroConta, limite = 100.00)
                     inserirConta(contaPoupanca)
-                    println("Conta ${contaPoupanca.numeroDaConta} inserida com sucesso!")
                 } else {
                     println("Opção inválida!")
                     exibirMenu()
@@ -114,6 +115,8 @@ class Banco(
                                 if (valor != null) {
                                     contaSelecionada.transfere(valor, contaDestino)
                                     println("Transferência da conta ${contaSelecionada.numeroDaConta} para ${contaDestino.numeroDaConta} no valor de R$ $valor")
+                                } else {
+                                    println("Valor incorreto!")
                                 }
                             } else {
                                 println("Conta inexistente!")
@@ -148,7 +151,6 @@ class Banco(
                 println("-------------------------------------------------------")
                 contas.forEach {
                     println(it)
-                    println("*******")
                 }
             }
 
@@ -162,6 +164,5 @@ class Banco(
                 exibirMenu()
             }
         }
-        exibirMenu()
     }
 }
