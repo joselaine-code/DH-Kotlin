@@ -20,7 +20,4 @@ class ContaPoupanca(numeroDaConta: Int, saldo: Double = 0.0, var limite: Double)
         println("Conta Poupança nº: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite\n")
     }
 
-    override fun toString(): String {
-        return "Conta Poupança nº: $numeroDaConta\nSaldo: R$ $saldo\nLimite: R$ $limite"
-    }
 }

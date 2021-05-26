@@ -16,10 +16,6 @@ class ContaCorrente(numeroDaConta: Int,  saldo: Double = 0.0, var taxaDeOperacao
     }
 
     override fun mostrarDados() {
-        println("Conta Corrente nº: $numeroDaConta\nSaldo: R$ $saldo")
-    }
-
-    override fun toString(): String {
-        return "Conta Corrente nº: $numeroDaConta\nSaldo: R$ $saldo"
+        println("Conta Corrente nº: $numeroDaConta\nSaldo: R$ $saldo\n")
     }
 }

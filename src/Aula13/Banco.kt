@@ -1,14 +1,15 @@
 package Aula13
 
 import java.util.*
-import kotlin.collections.ArrayList
 
 class Banco(
     var contas: ArrayList<ContaBancaria>
 ) : Imprimivel {
 
     override fun mostrarDados() {
-        contas.forEach { println(it) }
+        contas.forEach {
+            if (it is ContaCorrente) it.mostrarDados() else if (it is ContaPoupanca) it.mostrarDados()
+        }
     }
 
     fun inserirConta(conta: ContaBancaria) {
@@ -19,19 +20,15 @@ class Banco(
     fun removerConta(conta: ContaBancaria) {
         if (contas.contains(conta)) {
             contas.remove(conta)
-            println("${conta.numeroDaConta} removida com sucesso!")
+            println("Conta ${conta.numeroDaConta} removida com sucesso!")
         } else {
             println("Conta não localizada")
         }
 
     }
 
-    fun localizarConta(conta: ContaBancaria): ContaBancaria? {
-        return if (contas.contains(conta)) {
-            conta
-        } else {
-            null
-        }
+    fun localizarConta(numero: Int): ContaBancaria? {
+        return contas.find { it.numeroDaConta == numero }
     }
 
     fun exibirMenu() {
@@ -47,7 +44,7 @@ class Banco(
         print("Digite a sua opção: ")
         when (readLine()?.toIntOrNull()) {
             1 -> {
-                println("Qual o tipo de conta você deseja criar? (CC/CP)")
+                print("Qual o tipo de conta você deseja criar? (CC/CP) ")
                 val opcao = readLine().toString().lowercase(Locale.getDefault())
                 if (opcao == "cc") {
                     val numeroConta: Int = if (contas.isEmpty()) {
@@ -72,9 +69,9 @@ class Banco(
             }
 
             2 -> {
-                println("Qual o número da conta que deseja selecionar?")
+                print("Qual o número da conta que deseja selecionar? ")
                 val conta = readLine()?.toInt()
-                val contaSelecionada: ContaBancaria? = contas.find { it.numeroDaConta == conta }
+                val contaSelecionada = conta?.let { localizarConta(it) }
                 if (contaSelecionada != null) {
                     println("-------------------------------------------------------")
                     println("               Conta $conta selecionada                ")
@@ -85,7 +82,7 @@ class Banco(
                     println("d) Gerar Relatório")
                     println("e) Retornar ao menu")
                     println("-------------------------------------------------------")
-                    print("Digite uma opção:")
+                    print("Digite uma opção: ")
                     val opcao = readLine()?.lowercase()
                     when (opcao) {
                         "a" -> {
@@ -93,6 +90,8 @@ class Banco(
                             val valor = readLine()?.toDouble()
                             if (valor != null) {
                                 contaSelecionada.depositar(valor)
+                            } else {
+                                println("Valor incorreto!")
                             }
                         }
                         "b" -> {
@@ -106,9 +105,9 @@ class Banco(
                         }
 
                         "c" -> {
-                            println("Para qual conta deseja transferir?")
+                            print("Para qual conta deseja transferir? ")
                             val conta = readLine()?.toInt()
-                            val contaDestino: ContaBancaria? = contas.find { it.numeroDaConta == conta }
+                            val contaDestino = conta?.let { localizarConta(it) }
                             if (contaDestino != null) {
                                 print("Qual valor deseja transferir? R$")
                                 val valor = readLine()?.toDouble()
@@ -133,13 +132,11 @@ class Banco(
             }
 
             3 -> {
-                println("Qual o número da conta que deseja remover?")
+                print("Qual o número da conta que deseja remover? ")
                 val conta = readLine()?.toInt()
-                val contaSelecionada: ContaBancaria? = contas.find { it.numeroDaConta == conta }
+                val contaSelecionada = conta?.let { localizarConta(it) }
                 if (contaSelecionada != null) {
                     removerConta(contaSelecionada)
-                    println("Conta $conta removida com sucesso!")
-                    contas.forEach { println(it) }
                 } else {
                     println("Conta não localizada!")
                 }
@@ -147,10 +144,10 @@ class Banco(
 
             4 -> {
                 println("-------------------------------------------------------")
-                println("Relatório de contas do DH Bank")
+                println("            Relatório de contas do DH Bank             ")
                 println("-------------------------------------------------------")
                 contas.forEach {
-                    println(it)
+                    if (it is ContaCorrente) it.mostrarDados() else if (it is ContaPoupanca) it.mostrarDados()
                 }
             }
 
